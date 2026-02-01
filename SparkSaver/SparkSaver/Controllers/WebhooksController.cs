@@ -18,7 +18,7 @@ public class WebhooksController(ILinkService linkService) : ControllerBase
             PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower
         });
 
-        if (request?.Message?.Text is null)
+        if (request?.Message?.Text is null || request.Message.Chat is null)
         {
             // TODO send response.
             return Ok();
@@ -34,7 +34,9 @@ public class WebhooksController(ILinkService linkService) : ControllerBase
 
         var link = request.Message.Text.Substring(linkEntity.Offset, linkEntity.Length);
 
-        await linkService.SaveLinkAsync(new SaveLinkRequest { Url = link }, ct);
+        await linkService.SaveLinkAsync(new SaveLinkRequest { Url = link, ChatId = request.Message.Chat.Id }, ct);
+
+        Console.WriteLine(request);
 
         return Ok();
     }

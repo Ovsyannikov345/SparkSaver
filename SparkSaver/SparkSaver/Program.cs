@@ -9,7 +9,7 @@ var config = builder.Configuration;
 
 builder.Services
     .RegisterPresentationServices()
-    .RegisterApplicationServices()
+    .RegisterApplicationServices(config)
     .RegisterInfrastructureServices(config);
 
 var app = builder.Build();

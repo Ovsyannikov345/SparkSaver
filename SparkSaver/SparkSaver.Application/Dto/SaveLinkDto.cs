@@ -2,5 +2,7 @@
 
 public sealed record SaveLinkRequest
 {
-    public required string Url { get; set; }
+    public required string Url { get; init; }
+
+    public long ChatId { get; init; }
 }
