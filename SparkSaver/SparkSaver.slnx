@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SparkSaver.Application/SparkSaver.Application.csproj" />
+  <Project Path="SparkSaver.Domain/SparkSaver.Domain.csproj" />
+  <Project Path="SparkSaver.Infrastructure/SparkSaver.Infrastructure.csproj" />
+  <Project Path="SparkSaver/SparkSaver.Presentation.csproj" />
+</Solution>
